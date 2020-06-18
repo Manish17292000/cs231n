@@ -17,7 +17,7 @@ class KNearestNeighbor(object):
 
         Inputs:
         - X: A numpy array of shape (num_train, D) containing the training data
-          consisting of num_train samples each of dimension D.
+              consisting of num_train samples each of dimension D.
         - y: A numpy array of shape (N,) containing the training labels, where
              y[i] is the label for X[i].
         """
@@ -130,8 +130,9 @@ class KNearestNeighbor(object):
         #       and two broadcast sums.                                         #
         #########################################################################
         # *****START OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
-
-        pass
+        
+        dists= np.sqrt( np.reshape(np.sum( np.square( X ), axis=1 ),(-1, 1)) + np.sum( np.square( self.X_train ), axis=1 ) - 2* np.dot(X, self.X_train.T) )
+        
 
         # *****END OF YOUR CODE (DO NOT DELETE/MODIFY THIS LINE)*****
         return dists
